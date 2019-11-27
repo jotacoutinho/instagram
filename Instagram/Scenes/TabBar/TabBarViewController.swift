@@ -84,13 +84,25 @@ final class TabBarViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
-        let directButton = UIBarButtonItem(image: UIImage(named: "directButton"), style: .plain, target: self, action: #selector(didTapDirectButton))
-        let igtvButton = UIBarButtonItem(image: UIImage(named: "igtvButton"), style: .plain, target: self, action: #selector(didTapIGTVButton))
-        let cameraButton = UIBarButtonItem(image: UIImage(named: "cameraButton"), style: .plain, target: self, action: #selector(didTapCameraButton))
+        let directButton = UIBarButtonItem(image: UIImage(named: "directButton"),
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(didTapDirectButton))
         
-        let titleImageView = UIImageView(image: UIImage(named: "instagramTextLogo"))
+        let igtvButton = UIBarButtonItem(image: UIImage(named: "igtvButton"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(didTapIGTVButton))
+        
+        let cameraButton = UIBarButtonItem(image: UIImage(named: "cameraButton"),
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(didTapCameraButton))
+        
+        let titleImage = UIImage(named: "instagramTextLogo")
+        let titleImageView = UIImageView(image: titleImage)
+        
         titleImageView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             titleImageView.heightAnchor.constraint(equalToConstant: 40),
             titleImageView.widthAnchor.constraint(equalToConstant: 80)
