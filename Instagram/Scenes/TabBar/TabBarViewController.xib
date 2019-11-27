@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TabBarViewController" customModule="Instagram" customModuleProvider="target">
+            <connections>
+                <outlet property="activityBarItem" destination="sLK-Ic-jDO" id="njd-vM-byc"/>
+                <outlet property="addBarItem" destination="xsR-zS-fss" id="Knm-ha-pQX"/>
+                <outlet property="containerView" destination="HVw-LT-abB" id="WHc-TI-wap"/>
+                <outlet property="homeBarItem" destination="F4u-H5-yJo" id="wqZ-z0-S6j"/>
+                <outlet property="profileBarItem" destination="sus-jA-Jtf" id="7yi-hw-C7f"/>
+                <outlet property="searchBarItem" destination="QXu-o5-Wnn" id="D4a-d4-alk"/>
+                <outlet property="tabBar" destination="5Jb-vE-A6s" id="LmY-LD-YtX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Jb-vE-A6s">
+                    <rect key="frame" x="0.0" y="813" width="414" height="83"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <items>
+                        <tabBarItem title="" id="F4u-H5-yJo"/>
+                        <tabBarItem title="" id="QXu-o5-Wnn"/>
+                        <tabBarItem title="" id="xsR-zS-fss"/>
+                        <tabBarItem title="" id="sLK-Ic-jDO"/>
+                        <tabBarItem title="" id="sus-jA-Jtf"/>
+                    </items>
+                </tabBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVw-LT-abB" userLabel="Container View">
+                    <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                    <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="HVw-LT-abB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3mH-31-4c2"/>
+                <constraint firstItem="5Jb-vE-A6s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ACL-li-X9P"/>
+                <constraint firstItem="HVw-LT-abB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SVt-om-26X"/>
+                <constraint firstAttribute="bottom" secondItem="5Jb-vE-A6s" secondAttribute="bottom" id="jhE-F8-wbe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HVw-LT-abB" secondAttribute="trailing" id="pzS-is-nhV"/>
+                <constraint firstItem="5Jb-vE-A6s" firstAttribute="top" secondItem="HVw-LT-abB" secondAttribute="bottom" id="qbn-6I-HEc"/>
+                <constraint firstItem="5Jb-vE-A6s" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="yVX-iY-tUM"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="132" y="154"/>
+        </view>
+    </objects>
+</document>
