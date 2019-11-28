@@ -30,6 +30,7 @@ class AppCoordinator: Coordinator {
         let viewModel = LaunchScreenViewModel(navigationDelegate: self)
         let launchScreenViewController = LaunchScreenViewController(viewModel: viewModel)
         navigationController.pushViewController(launchScreenViewController, animated: false)
+        navigationController.navigationBar.isHidden = true
         window.makeKeyAndVisible()
     }
 }
@@ -40,6 +41,7 @@ extension AppCoordinator: LaunchScreenNavigationDelegate {
             guard let self = self else { return }
             self.navigationController.navigationBar.tintColor = .secondaryColor
             self.navigationController.navigationBar.barStyle = .black
+            self.navigationController.navigationBar.isHidden = false
             let coordinator = TabBarCoordinator(presenter: self.navigationController)
             self.add(childCoordinator: coordinator)
             coordinator.start()
