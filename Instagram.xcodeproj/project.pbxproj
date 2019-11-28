@@ -28,8 +28,8 @@
 		5C82FD102390039D0018ABB7 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C82FD0B2390039D0018ABB7 /* HomeService.swift */; };
 		5C82FD18239005240018ABB7 /* StoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C82FD16239005240018ABB7 /* StoriesCollectionViewCell.swift */; };
 		5C82FD19239005240018ABB7 /* StoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C82FD17239005240018ABB7 /* StoriesCollectionViewCell.xib */; };
-		5C960B22239030B400A418CE /* FeedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C960B20239030B400A418CE /* FeedCellView.swift */; };
-		5C960B23239030B400A418CE /* FeedCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C960B21239030B400A418CE /* FeedCellView.xib */; };
+		5CE58682239070D400242721 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE58680239070D400242721 /* FeedTableViewCell.swift */; };
+		5CE58683239070D400242721 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CE58681239070D400242721 /* FeedTableViewCell.xib */; };
 		5CF64CB1238EB5C800BD492D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF64CB0238EB5C800BD492D /* AppDelegate.swift */; };
 		5CF64CBA238EB5D300BD492D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CF64CB9238EB5D300BD492D /* Images.xcassets */; };
 		5CF64CBD238EB5D300BD492D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CF64CBB238EB5D300BD492D /* LaunchScreen.storyboard */; };
@@ -79,8 +79,8 @@
 		5C82FD0B2390039D0018ABB7 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		5C82FD16239005240018ABB7 /* StoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		5C82FD17239005240018ABB7 /* StoriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoriesCollectionViewCell.xib; sourceTree = "<group>"; };
-		5C960B20239030B400A418CE /* FeedCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellView.swift; sourceTree = "<group>"; };
-		5C960B21239030B400A418CE /* FeedCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCellView.xib; sourceTree = "<group>"; };
+		5CE58680239070D400242721 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		5CE58681239070D400242721 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		5CF64CAD238EB5C800BD492D /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF64CB0238EB5C800BD492D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CF64CB9238EB5D300BD492D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -222,8 +222,8 @@
 		5C82FD11239004660018ABB7 /* FeedCell */ = {
 			isa = PBXGroup;
 			children = (
-				5C960B20239030B400A418CE /* FeedCellView.swift */,
-				5C960B21239030B400A418CE /* FeedCellView.xib */,
+				5CE58680239070D400242721 /* FeedTableViewCell.swift */,
+				5CE58681239070D400242721 /* FeedTableViewCell.xib */,
 			);
 			path = FeedCell;
 			sourceTree = "<group>";
@@ -394,7 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C960B23239030B400A418CE /* FeedCellView.xib in Resources */,
+				5CE58683239070D400242721 /* FeedTableViewCell.xib in Resources */,
 				5C548B23238EEBAC004F3BCA /* Colors.xcassets in Resources */,
 				5C548B20238EEA4F004F3BCA /* TabBarViewController.xib in Resources */,
 				5CF64CBD238EB5D300BD492D /* LaunchScreen.storyboard in Resources */,
@@ -470,11 +470,11 @@
 			files = (
 				5C548B1F238EEA4F004F3BCA /* TabBarViewModel.swift in Sources */,
 				5C548B25238EECE9004F3BCA /* UIColor.swift in Sources */,
+				5CE58682239070D400242721 /* FeedTableViewCell.swift in Sources */,
 				5C548B1D238EEA4F004F3BCA /* TabBarObject.swift in Sources */,
 				5CF64CB1238EB5C800BD492D /* AppDelegate.swift in Sources */,
 				5C548B0F238EE114004F3BCA /* AppCoordinator.swift in Sources */,
 				5C82FD0D2390039D0018ABB7 /* HomeViewController.swift in Sources */,
-				5C960B22239030B400A418CE /* FeedCellView.swift in Sources */,
 				5C82FD102390039D0018ABB7 /* HomeService.swift in Sources */,
 				5C82FD0C2390039D0018ABB7 /* HomeObject.swift in Sources */,
 				5C548B07238EDFCC004F3BCA /* LaunchScreenViewController.swift in Sources */,

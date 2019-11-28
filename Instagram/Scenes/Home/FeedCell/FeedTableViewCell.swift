@@ -1,5 +1,5 @@
 //
-//  FeedCellView.swift
+//  FeedTableViewCell.swift
 //  Instagram
 //
 //  Created by João Pedro De Souza Coutinho on 28/11/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedCellView: UIView {
+class FeedTableViewCell: UITableViewCell {
     
     // MARK: - IBOutlets
     @IBOutlet weak var headerView: UIView! {
@@ -17,12 +17,7 @@ class FeedCellView: UIView {
         }
     }
     
-    @IBOutlet weak var imageView: UIImageView! {
-        didSet {
-           
-        }
-    }
-       
+    @IBOutlet weak var postImageView: UIImageView!
     
     @IBOutlet weak var commandsView: UIView! {
         didSet {
@@ -30,21 +25,18 @@ class FeedCellView: UIView {
         }
     }
        
-    
     @IBOutlet weak var likesView: UIView! {
         didSet {
             likesView.backgroundColor = .clear
         }
     }
        
-    
     @IBOutlet weak var descriptionView: UIView! {
         didSet {
                
         }
     }
        
-    
     @IBOutlet weak var commentView: UIView! {
         didSet {
             commentView.backgroundColor = .clear
@@ -66,7 +58,7 @@ class FeedCellView: UIView {
     @IBOutlet weak var usernameLabel: UILabel! {
         didSet {
             usernameLabel.text = "jotacoutinho94"
-            usernameLabel.font = UIFont.boldSystemFont(ofSize: 11)
+            usernameLabel.font = UIFont.boldSystemFont(ofSize: 14)
             usernameLabel.textColor = .secondaryColor
         }
     }
@@ -74,7 +66,7 @@ class FeedCellView: UIView {
     @IBOutlet weak var locationLabel: UILabel! {
         didSet {
             locationLabel.text = "Rune Midgard"
-            locationLabel.font = UIFont.systemFont(ofSize: 11)
+            locationLabel.font = UIFont.systemFont(ofSize: 14)
             locationLabel.textColor = .secondaryColor
         }
     }
@@ -83,6 +75,7 @@ class FeedCellView: UIView {
         didSet {
             moreButton.setTitle("", for: .normal)
             moreButton.setImage(UIImage(named: "moreButton"), for: .normal)
+            moreButton.tintColor = .secondaryColor
         }
     }
     
@@ -90,14 +83,16 @@ class FeedCellView: UIView {
     @IBOutlet weak var likeButton: UIButton! {
         didSet {
             likeButton.setTitle("", for: .normal)
-            likeButton.setImage(UIImage(named:"likeButton"), for: .normal)
+            likeButton.setImage(UIImage(named: "likeButton"), for: .normal)
+            likeButton.tintColor = .secondaryColor
         }
     }
     
     @IBOutlet weak var commentButton: UIButton! {
         didSet {
             commentButton.setTitle("", for: .normal)
-            commentButton.setImage(UIImage(named:"commentButton"), for: .normal)
+            commentButton.setImage(UIImage(named: "commentButton"), for: .normal)
+            commentButton.tintColor = .secondaryColor
         }
     }
     
@@ -105,6 +100,7 @@ class FeedCellView: UIView {
         didSet {
             messageButton.setTitle("", for: .normal)
             messageButton.setImage(UIImage(named: "directButton"), for: .normal)
+            messageButton.tintColor = .secondaryColor
         }
     }
     
@@ -112,6 +108,7 @@ class FeedCellView: UIView {
         didSet {
             saveButton.setTitle("", for: .normal)
             saveButton.setImage(UIImage(named: "saveButton"), for: .normal)
+            saveButton.tintColor = .secondaryColor
         }
     }
     
@@ -120,6 +117,7 @@ class FeedCellView: UIView {
         didSet {
             likesLabel.text = "Liked by you and others"
             likesLabel.textColor = .secondaryColor
+            likesLabel.font = UIFont.systemFont(ofSize: 12)
         }
     }
     
@@ -128,6 +126,7 @@ class FeedCellView: UIView {
         didSet {
             descriptionLabel.text = "jotacoutinho94 War of Emperium #ragnarok #rpg #gaming"
             descriptionLabel.textColor = .secondaryColor
+            descriptionLabel.font = UIFont.systemFont(ofSize: 14)
         }
     }
     
@@ -160,25 +159,16 @@ class FeedCellView: UIView {
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
             dateLabel.text = "28 de novembro"
-            dateLabel.font = UIFont.systemFont(ofSize: 8)
+            dateLabel.font = UIFont.systemFont(ofSize: 10)
             dateLabel.textColor = .lightGray
         }
     }
-    
+
     // MARK: - Life cycle
-    init() {
-        super.init(frame: .zero)
-        commonInit()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-
-    func commonInit() {
-        let nib = UINib(nibName: String(describing: type(of: self)), bundle: .main)
-        nib.instantiate(withOwner: self, options: nil)
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+        backgroundColor = UIColor.clear
     }
     
     // MARK: - Custom methods

@@ -12,7 +12,7 @@ class StoriesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var borderView: UIView! {
         didSet {
-            borderView.layer.cornerRadius = 40
+            borderView.layer.cornerRadius = 32
             borderView.layer.borderWidth = 2
             borderView.layer.borderColor = UIColor.secondaryColor.cgColor
         }

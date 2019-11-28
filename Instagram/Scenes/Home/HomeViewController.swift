@@ -34,7 +34,11 @@ final class HomeViewController: UIViewController {
     
     @IBOutlet weak var feedTableView: UITableView! {
         didSet {
-            
+            feedTableView.delegate = self
+            feedTableView.dataSource = self
+            feedTableView.separatorStyle = .none
+            feedTableView.estimatedRowHeight = 600
+            feedTableView.register(UINib(nibName: "FeedTableViewCell", bundle: nil), forCellReuseIdentifier: "feedTableViewCell")
         }
     }
     
@@ -80,11 +84,11 @@ final class HomeViewController: UIViewController {
         let nib = UINib(nibName: "StoriesCollectionViewCell", bundle: nil)
         let layout = UICollectionViewFlowLayout()
         
-        layout.itemSize = CGSize(width: 80, height: 104)
+        layout.itemSize = CGSize(width: 64, height: 88)
         layout.sectionInset = UIEdgeInsets(top: 8, left: 16, bottom: 0, right: 0)
         layout.minimumInteritemSpacing = 32
         layout.scrollDirection = .horizontal
-        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 112)
+        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 96)
         
         storiesCollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         storiesCollectionView?.collectionViewLayout = layout
@@ -93,6 +97,29 @@ final class HomeViewController: UIViewController {
         
         storiesCollectionView?.dataSource = self
         storiesCollectionView?.delegate = self
+    }
+}
+
+// MARK: - UITableViewViewDataSource
+extension HomeViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "feedTableViewCell", for: indexPath) as? FeedTableViewCell
+        return cell ?? UITableViewCell()
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
 
