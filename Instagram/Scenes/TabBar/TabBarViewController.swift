@@ -9,6 +9,14 @@
 import UIKit
 
 final class TabBarViewController: UIViewController {
+    
+    enum Tabs: Int {
+        case home = 0
+        case search = 1
+        case add = 2
+        case activity = 3
+        case profile = 4
+    }
 
     // MARK: IBOutlets
     @IBOutlet weak var tabBar: UITabBar! {
@@ -27,32 +35,37 @@ final class TabBarViewController: UIViewController {
         didSet {
             homeBarItem.image = UIImage(named: "homeButton")?.withRenderingMode(.alwaysTemplate)
             homeBarItem.badgeColor = .red
+            homeBarItem.tag = Tabs.home.rawValue
         }
     }
     
     @IBOutlet weak var searchBarItem: UITabBarItem! {
-           didSet {
-               searchBarItem.image = UIImage(named: "searchButton")?.withRenderingMode(.alwaysTemplate)
-           }
+       didSet {
+            searchBarItem.image = UIImage(named: "searchButton")?.withRenderingMode(.alwaysTemplate)
+            searchBarItem.tag = Tabs.search.rawValue
        }
+   }
     
     @IBOutlet weak var addBarItem: UITabBarItem! {
-           didSet {
-               addBarItem.image = UIImage(named: "addButton")?.withRenderingMode(.alwaysTemplate)
-           }
+       didSet {
+            addBarItem.image = UIImage(named: "addButton")?.withRenderingMode(.alwaysTemplate)
+            addBarItem.tag = Tabs.add.rawValue
        }
+   }
     
     @IBOutlet weak var activityBarItem: UITabBarItem! {
-           didSet {
-               activityBarItem.image = UIImage(named: "likeButton")?.withRenderingMode(.alwaysTemplate)
-           }
+       didSet {
+            activityBarItem.image = UIImage(named: "likeButton")?.withRenderingMode(.alwaysTemplate)
+            activityBarItem.tag = Tabs.activity.rawValue
        }
+   }
     
     @IBOutlet weak var profileBarItem: UITabBarItem! {
-           didSet {
-               profileBarItem.image = UIImage(named: "profileButton")?.withRenderingMode(.alwaysTemplate)
-           }
+       didSet {
+            profileBarItem.image = UIImage(named: "profileButton")?.withRenderingMode(.alwaysTemplate)
+            profileBarItem.tag = Tabs.profile.rawValue
        }
+    }
     
     // MARK: Variables
     let viewModel: TabBarViewModelProtocol
@@ -128,12 +141,27 @@ final class TabBarViewController: UIViewController {
 
 extension TabBarViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = UIColor(red: CGFloat.random(in: 0...1),
-                                                      green: CGFloat.random(in: 0...1),
-                                                      blue: CGFloat.random(in: 0...1),
-                                                      alpha: 1)
+        var viewController = UIViewController()
+        let tab = Tabs(rawValue: item.tag)
+        
+        switch tab {
+        case .home:
+            viewController = HomeViewController(viewModel: HomeViewModel())
+            viewController.view.frame = containerView.bounds
+//        case .search:
+//        case .add:
+//        case .activity:
+//        case .profile:
+        default:
+            viewController.view.backgroundColor = UIColor(red: CGFloat.random(in: 0...1),
+                                                          green: CGFloat.random(in: 0...1),
+                                                          blue: CGFloat.random(in: 0...1),
+                                                          alpha: 1)
+        }
+        
         containerView.addSubview(viewController.view)
+        addChild(viewController)
+        viewController.didMove(toParent: self)
         viewController.view.frame = containerView.bounds
     }
 }

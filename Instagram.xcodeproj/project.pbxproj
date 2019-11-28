@@ -21,6 +21,15 @@
 		5C548B21238EEA4F004F3BCA /* TabBarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548B1B238EEA4F004F3BCA /* TabBarService.swift */; };
 		5C548B23238EEBAC004F3BCA /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C548B22238EEBAC004F3BCA /* Colors.xcassets */; };
 		5C548B25238EECE9004F3BCA /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548B24238EECE9004F3BCA /* UIColor.swift */; };
+		5C82FD0C2390039D0018ABB7 /* HomeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C82FD072390039D0018ABB7 /* HomeObject.swift */; };
+		5C82FD0D2390039D0018ABB7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C82FD082390039D0018ABB7 /* HomeViewController.swift */; };
+		5C82FD0E2390039D0018ABB7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C82FD092390039D0018ABB7 /* HomeViewModel.swift */; };
+		5C82FD0F2390039D0018ABB7 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C82FD0A2390039D0018ABB7 /* HomeViewController.xib */; };
+		5C82FD102390039D0018ABB7 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C82FD0B2390039D0018ABB7 /* HomeService.swift */; };
+		5C82FD18239005240018ABB7 /* StoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C82FD16239005240018ABB7 /* StoriesCollectionViewCell.swift */; };
+		5C82FD19239005240018ABB7 /* StoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C82FD17239005240018ABB7 /* StoriesCollectionViewCell.xib */; };
+		5C960B22239030B400A418CE /* FeedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C960B20239030B400A418CE /* FeedCellView.swift */; };
+		5C960B23239030B400A418CE /* FeedCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C960B21239030B400A418CE /* FeedCellView.xib */; };
 		5CF64CB1238EB5C800BD492D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF64CB0238EB5C800BD492D /* AppDelegate.swift */; };
 		5CF64CBA238EB5D300BD492D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CF64CB9238EB5D300BD492D /* Images.xcassets */; };
 		5CF64CBD238EB5D300BD492D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CF64CBB238EB5D300BD492D /* LaunchScreen.storyboard */; };
@@ -63,6 +72,15 @@
 		5C548B1B238EEA4F004F3BCA /* TabBarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarService.swift; sourceTree = "<group>"; };
 		5C548B22238EEBAC004F3BCA /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5C548B24238EECE9004F3BCA /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		5C82FD072390039D0018ABB7 /* HomeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeObject.swift; sourceTree = "<group>"; };
+		5C82FD082390039D0018ABB7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5C82FD092390039D0018ABB7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		5C82FD0A2390039D0018ABB7 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		5C82FD0B2390039D0018ABB7 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		5C82FD16239005240018ABB7 /* StoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		5C82FD17239005240018ABB7 /* StoriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoriesCollectionViewCell.xib; sourceTree = "<group>"; };
+		5C960B20239030B400A418CE /* FeedCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellView.swift; sourceTree = "<group>"; };
+		5C960B21239030B400A418CE /* FeedCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCellView.xib; sourceTree = "<group>"; };
 		5CF64CAD238EB5C800BD492D /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF64CB0238EB5C800BD492D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CF64CB9238EB5D300BD492D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -131,6 +149,7 @@
 		5C548B0B238EE0B8004F3BCA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5C82FD062390034E0018ABB7 /* Home */,
 				5C548B0D238EE0DC004F3BCA /* TabBar */,
 				5C548B03238EDFA7004F3BCA /* LaunchScreen */,
 			);
@@ -175,6 +194,38 @@
 				5C548B14238EE16C004F3BCA /* Coordinator.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5C82FD052390030E0018ABB7 /* StoriesCell */ = {
+			isa = PBXGroup;
+			children = (
+				5C82FD16239005240018ABB7 /* StoriesCollectionViewCell.swift */,
+				5C82FD17239005240018ABB7 /* StoriesCollectionViewCell.xib */,
+			);
+			path = StoriesCell;
+			sourceTree = "<group>";
+		};
+		5C82FD062390034E0018ABB7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5C82FD11239004660018ABB7 /* FeedCell */,
+				5C82FD052390030E0018ABB7 /* StoriesCell */,
+				5C82FD072390039D0018ABB7 /* HomeObject.swift */,
+				5C82FD082390039D0018ABB7 /* HomeViewController.swift */,
+				5C82FD092390039D0018ABB7 /* HomeViewModel.swift */,
+				5C82FD0A2390039D0018ABB7 /* HomeViewController.xib */,
+				5C82FD0B2390039D0018ABB7 /* HomeService.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5C82FD11239004660018ABB7 /* FeedCell */ = {
+			isa = PBXGroup;
+			children = (
+				5C960B20239030B400A418CE /* FeedCellView.swift */,
+				5C960B21239030B400A418CE /* FeedCellView.xib */,
+			);
+			path = FeedCell;
 			sourceTree = "<group>";
 		};
 		5CF64CA4238EB5C800BD492D = {
@@ -343,11 +394,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C960B23239030B400A418CE /* FeedCellView.xib in Resources */,
 				5C548B23238EEBAC004F3BCA /* Colors.xcassets in Resources */,
 				5C548B20238EEA4F004F3BCA /* TabBarViewController.xib in Resources */,
 				5CF64CBD238EB5D300BD492D /* LaunchScreen.storyboard in Resources */,
 				5CF64CBA238EB5D300BD492D /* Images.xcassets in Resources */,
 				5C548B08238EDFCC004F3BCA /* LaunchScreenViewController.xib in Resources */,
+				5C82FD0F2390039D0018ABB7 /* HomeViewController.xib in Resources */,
+				5C82FD19239005240018ABB7 /* StoriesCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,12 +473,18 @@
 				5C548B1D238EEA4F004F3BCA /* TabBarObject.swift in Sources */,
 				5CF64CB1238EB5C800BD492D /* AppDelegate.swift in Sources */,
 				5C548B0F238EE114004F3BCA /* AppCoordinator.swift in Sources */,
+				5C82FD0D2390039D0018ABB7 /* HomeViewController.swift in Sources */,
+				5C960B22239030B400A418CE /* FeedCellView.swift in Sources */,
+				5C82FD102390039D0018ABB7 /* HomeService.swift in Sources */,
+				5C82FD0C2390039D0018ABB7 /* HomeObject.swift in Sources */,
 				5C548B07238EDFCC004F3BCA /* LaunchScreenViewController.swift in Sources */,
 				5C548B1E238EEA4F004F3BCA /* TabBarViewController.swift in Sources */,
 				5C548B21238EEA4F004F3BCA /* TabBarService.swift in Sources */,
+				5C82FD18239005240018ABB7 /* StoriesCollectionViewCell.swift in Sources */,
 				5C548B1C238EEA4F004F3BCA /* TabBarCoordinator.swift in Sources */,
 				5C548B09238EDFCC004F3BCA /* LaunchScreenViewModel.swift in Sources */,
 				5C548B11238EE144004F3BCA /* Constants.swift in Sources */,
+				5C82FD0E2390039D0018ABB7 /* HomeViewModel.swift in Sources */,
 				5C548B15238EE16C004F3BCA /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

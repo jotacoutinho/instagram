@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Instagram" customModuleProvider="target">
+            <connections>
+                <outlet property="feedStackView" destination="kXk-WJ-6Va" id="nti-Im-WWp"/>
+                <outlet property="storiesCollectionView" destination="bEv-kn-qoe" id="cqf-gb-fOW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bEv-kn-qoe">
+                    <rect key="frame" x="0.0" y="88" width="414" height="125"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="125" id="Lce-YA-jD9"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="li0-lt-G6N">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kXk-WJ-6Va" userLabel="Feed Stack View">
+                    <rect key="frame" x="0.0" y="213" width="414" height="649"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kXk-WJ-6Va" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7Zn-ZX-K9F"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kXk-WJ-6Va" secondAttribute="trailing" id="H8Y-w1-MQN"/>
+                <constraint firstItem="bEv-kn-qoe" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="IHp-RK-gUi"/>
+                <constraint firstItem="kXk-WJ-6Va" firstAttribute="top" secondItem="bEv-kn-qoe" secondAttribute="bottom" id="SvC-Zw-kyl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bEv-kn-qoe" secondAttribute="trailing" id="VWa-Tn-YZo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kXk-WJ-6Va" secondAttribute="bottom" id="tpq-WN-K8M"/>
+                <constraint firstItem="bEv-kn-qoe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zAr-sl-Ayy"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="132" y="154"/>
+        </view>
+    </objects>
+</document>
