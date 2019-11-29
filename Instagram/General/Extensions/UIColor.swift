@@ -15,4 +15,7 @@ extension UIColor {
     static var secondaryColor: UIColor {
         return UIColor(named: "SecondaryColor") ?? UIColor.init(red: 241/255, green: 241/255, blue: 241/255, alpha: 1)
     }
+    static var highlightColor: UIColor {
+        return UIColor(named: "HighlightColor") ?? UIColor.init(red: 198/255, green: 158/255, blue: 108/255, alpha: 1)
+    }
 }

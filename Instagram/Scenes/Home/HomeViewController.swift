@@ -11,21 +11,6 @@ import UIKit
 final class HomeViewController: UIViewController {
 
     // MARK: IBOutlets
-//    @IBOutlet weak var storiesCollectionView: UICollectionView! {
-//        didSet {
-//            let nib = UINib(nibName: "StoriesCollectionViewCell", bundle: nil)
-//            storiesCollectionView?.register(nib, forCellWithReuseIdentifier: "storiesCollectionViewCell")
-//            storiesCollectionView.dataSource = self
-//            storiesCollectionView.delegate = self
-//            let layout = UICollectionViewFlowLayout()
-//            layout.itemSize = CGSize(width: 80, height: 104)
-//            layout.minimumInteritemSpacing = 32
-//            layout.scrollDirection = .vertical
-//            storiesCollectionView.collectionViewLayout = layout
-//            storiesCollectionView.showsHorizontalScrollIndicator = false
-//        }
-//    }
-    
     @IBOutlet weak var feedStackView: UIStackView! {
         didSet {
             feedStackView.backgroundColor = .secondaryColor
@@ -38,6 +23,7 @@ final class HomeViewController: UIViewController {
             feedTableView.dataSource = self
             feedTableView.separatorStyle = .none
             feedTableView.estimatedRowHeight = 600
+            feedTableView.showsVerticalScrollIndicator = false
             feedTableView.register(UINib(nibName: "FeedTableViewCell", bundle: nil), forCellReuseIdentifier: "feedTableViewCell")
         }
     }
@@ -62,22 +48,24 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         configureStoriesCollectionView()
-        feedTableView.tableHeaderView = storiesCollectionView
-//
-//        if let feed = feedStackView.arrangedSubviews.first {
-//           feedStackView.removeArrangedSubview(feed)
-//        }
-//        let feedCell = FeedCellView()
-//        feedCell.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 500)
-//        feedStackView.addArrangedSubview(feedCell)
-//        storiesCollectionView.isScrollEnabled = false
-        
+        configureFeedTableViewHeader()
+
         setupBinds()
     }
 
     // MARK: Functions
     private func setupBinds() {
         
+    }
+    
+    func configureFeedTableViewHeader() {
+        feedTableView.tableHeaderView = storiesCollectionView
+        
+        let separatorView = UIView()
+        guard let collection = storiesCollectionView else { return }
+        collection.addSubview(separatorView)
+        separatorView.frame = CGRect(x: collection.frame.minX, y: collection.frame.maxY, width: collection.frame.width, height: 1)
+        separatorView.backgroundColor = .lightGray
     }
     
     private func configureStoriesCollectionView() {
@@ -112,6 +100,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedTableViewCell", for: indexPath) as? FeedTableViewCell
+        cell?.configure(rootVC: self)
         return cell ?? UITableViewCell()
     }
 }
@@ -132,7 +121,7 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storiesCollectionViewCell", for: indexPath) as? StoriesCollectionViewCell
-        //cell?.configure()
+        cell?.configure(userCell: indexPath.item == 0)
         return cell ?? UICollectionViewCell()
     }
 }

@@ -28,6 +28,14 @@ class StoriesCollectionViewCell: UICollectionViewCell {
         
     }
     
+    @IBOutlet weak var addStoryButton: UIImageView! {
+        didSet {
+            addStoryButton.layer.cornerRadius = addStoryButton.frame.height/2
+            addStoryButton.clipsToBounds = true
+            addStoryButton.backgroundColor = .primaryColor
+        }
+    }
+    
     @IBOutlet weak var userNicknameLabel: UILabel! {
         didSet {
             userNicknameLabel.text = "instagram"
@@ -39,6 +47,13 @@ class StoriesCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func configure(userCell: Bool) {
+        addStoryButton.isHidden = !userCell
+        borderView.layer.borderColor = userCell ? UIColor.clear.cgColor: UIColor.secondaryColor.cgColor
+        userImageView.image = userCell ? UIImage(named: "jota") : UIImage(named: "instagramLogo")
+        userNicknameLabel.text = userCell ? "Your Story" : "instagram"
     }
 
 }

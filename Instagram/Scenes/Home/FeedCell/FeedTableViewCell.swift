@@ -17,7 +17,7 @@ class FeedTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var postView: UIView!
     
     @IBOutlet weak var commandsView: UIView! {
         didSet {
@@ -79,6 +79,17 @@ class FeedTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Post View
+    @IBOutlet weak var postImageView: UIImageView!
+    
+    @IBOutlet weak var likeImageView: UIImageView! {
+        didSet {
+            likeImageView.image = UIImage(named: "likeButtonFilled")?.withRenderingMode(.alwaysTemplate)
+            likeImageView.tintColor = .secondaryColor
+            likeImageView.contentMode = .scaleAspectFill
+            likeImageView.isHidden = true
+        }
+    }
     // MARK: - Commands View
     @IBOutlet weak var likeButton: UIButton! {
         didSet {
@@ -115,18 +126,34 @@ class FeedTableViewCell: UITableViewCell {
     // MARK: - Likes View
     @IBOutlet weak var likesLabel: UILabel! {
         didSet {
-            likesLabel.text = "Liked by you and others"
-            likesLabel.textColor = .secondaryColor
-            likesLabel.font = UIFont.systemFont(ofSize: 12)
+            let attributedString = NSMutableAttributedString(string: "Liked by you and others", attributes: [
+              .font: UIFont.systemFont(ofSize: 14),
+              .foregroundColor: UIColor.secondaryColor
+            ])
+            attributedString.addAttribute(.font,
+                                          value: UIFont.boldSystemFont(ofSize: 14),
+                                          range: NSRange(location: 9, length: 3))
+            attributedString.addAttribute(.font,
+                                          value: UIFont.boldSystemFont(ofSize: 14),
+                                          range: NSRange(location: 17, length: 6))
+            likesLabel.attributedText = attributedString
         }
     }
     
     // MARK: - Description View
     @IBOutlet weak var descriptionLabel: UILabel! {
         didSet {
-            descriptionLabel.text = "jotacoutinho94 War of Emperium #ragnarok #rpg #gaming"
-            descriptionLabel.textColor = .secondaryColor
-            descriptionLabel.font = UIFont.systemFont(ofSize: 14)
+            let attributedString = NSMutableAttributedString(string: "jotacoutinho94 War of Emperium #ragnarok #rpg #gaming", attributes: [
+              .font: UIFont.systemFont(ofSize: 14),
+              .foregroundColor: UIColor.secondaryColor
+            ])
+            attributedString.addAttribute(.font,
+                                          value: UIFont.boldSystemFont(ofSize: 14),
+                                          range: NSRange(location: 0, length: 14))
+            attributedString.addAttribute(.foregroundColor,
+                                          value: UIColor.highlightColor,
+                                          range: NSRange(location: 31, length: 22))
+            descriptionLabel.attributedText = attributedString
         }
     }
     
@@ -149,27 +176,108 @@ class FeedTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var addCommentButton: UIButton! {
+    @IBOutlet weak var addCommentTextField: UITextField! {
         didSet {
-            addCommentButton.setTitle("Add a comment...", for: .normal)
-            addCommentButton.tintColor = .lightGray
+            addCommentTextField.placeholder = "Add a comment..."
+            addCommentTextField.font = UIFont.systemFont(ofSize: 12)
+            addCommentTextField.textColor = .secondaryColor
+            addCommentTextField.backgroundColor = .clear
+            addCommentTextField.tintColor = .highlightColor
         }
     }
     
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
-            dateLabel.text = "28 de novembro"
+            dateLabel.text = "november 29th"
             dateLabel.font = UIFont.systemFont(ofSize: 10)
             dateLabel.textColor = .lightGray
         }
     }
-
+    
+    // MARK: - Actions
+    @IBAction func moreButtonAction(_ sender: Any) {
+        rootViewController.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    @IBAction func likeButtonAction(_ sender: Any) {
+        likeStatus = !likeStatus
+        likeButton.setImage(UIImage(named: likeStatus ? "likeButtonFilled" : "likeButton"), for: .normal)
+        showLikeAnimation()
+    }
+    
+    @IBAction func commentButtonAction(_ sender: Any) {
+        // TODO: open comment section
+    }
+    
+    @IBAction func messageButtonAction(_ sender: Any) {
+        // TODO: bottom sheet
+    }
+    
+    @IBAction func saveButtonAction(_ sender: Any) {
+        saveStatus = !saveStatus
+        saveButton.setImage(UIImage(named: likeStatus ? "saveButtonFilled" : "saveButton"), for: .normal)
+    }
+    
+    @IBAction func viewAllCommentsButtonAction(_ sender: Any) {
+        // TODO: open comment section
+    }
+    
+    @IBAction func didTouchAddCommentTextField(_ sender: Any) {
+        addCommentTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func didEndAddingComent(_ sender: Any) {
+        addCommentTextField.resignFirstResponder()
+    }
+    
+    // MARK: - Variables
+    var likeStatus: Bool = false
+    var saveStatus: Bool = false
+    var actionSheet: UIAlertController = UIAlertController()
+    private var rootViewController: UIViewController = UIViewController()
+    
     // MARK: - Life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
         backgroundColor = UIColor.clear
+        
+        configureMoreActionSheet()
     }
     
     // MARK: - Custom methods
+    func configure(rootVC: UIViewController){
+        rootViewController = rootVC
+    }
+    
+    func showLikeAnimation() {
+        // TODO: show animation on top of the image when post is liked
+    }
+    
+    func configureMoreActionSheet() {
+        actionSheet = UIAlertController(title: "Actions", message: "What do you want to do?", preferredStyle: .actionSheet)
+        
+        let reportAction = UIAlertAction(title: "Report", style: .destructive, handler: nil)
+        let muteAction = UIAlertAction(title: "Mute", style: .default, handler: nil)
+        let unfollowAction = UIAlertAction(title: "Unfollow", style: .default, handler: nil)
+        let copyAction = UIAlertAction(title: "Copy Link", style: .default, handler: nil)
+        let shareAction = UIAlertAction(title: "Share to...", style: .default, handler: nil)
+        let showPostAction = UIAlertAction(title: "Turn On Post Notifications", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        
+        muteAction.setValue(UIColor.secondaryColor, forKey: "titleTextColor")
+        unfollowAction.setValue(UIColor.secondaryColor, forKey: "titleTextColor")
+        copyAction.setValue(UIColor.secondaryColor, forKey: "titleTextColor")
+        shareAction.setValue(UIColor.secondaryColor, forKey: "titleTextColor")
+        showPostAction.setValue(UIColor.secondaryColor, forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.secondaryColor, forKey: "titleTextColor")
+        
+        actionSheet.addAction(reportAction)
+        actionSheet.addAction(muteAction)
+        actionSheet.addAction(unfollowAction)
+        actionSheet.addAction(copyAction)
+        actionSheet.addAction(shareAction)
+        actionSheet.addAction(showPostAction)
+        actionSheet.addAction(cancelAction)
+    }
 }

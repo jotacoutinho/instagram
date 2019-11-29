@@ -55,7 +55,7 @@ final class TabBarViewController: UIViewController {
     
     @IBOutlet weak var activityBarItem: UITabBarItem! {
        didSet {
-            activityBarItem.image = UIImage(named: "likeButton")?.withRenderingMode(.alwaysTemplate)
+            activityBarItem.image = UIImage(named: "likeButtonFilled")?.withRenderingMode(.alwaysTemplate)
             activityBarItem.tag = Tabs.activity.rawValue
        }
    }
