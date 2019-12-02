@@ -25,6 +25,7 @@ final class HomeViewController: UIViewController {
             feedTableView.estimatedRowHeight = 600
             feedTableView.showsVerticalScrollIndicator = false
             feedTableView.register(UINib(nibName: "FeedTableViewCell", bundle: nil), forCellReuseIdentifier: "feedTableViewCell")
+            feedTableView.backgroundColor = .primaryColor
         }
     }
     
@@ -82,6 +83,7 @@ final class HomeViewController: UIViewController {
         storiesCollectionView?.collectionViewLayout = layout
         storiesCollectionView?.showsHorizontalScrollIndicator = false
         storiesCollectionView?.register(nib, forCellWithReuseIdentifier: "storiesCollectionViewCell")
+        storiesCollectionView?.backgroundColor = .primaryColor
         
         storiesCollectionView?.dataSource = self
         storiesCollectionView?.delegate = self
@@ -100,7 +102,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedTableViewCell", for: indexPath) as? FeedTableViewCell
-        cell?.configure(rootVC: self)
+        cell?.configure(delegate: self)
         return cell ?? UITableViewCell()
     }
 }
@@ -124,6 +126,10 @@ extension HomeViewController: UICollectionViewDataSource {
         cell?.configure(userCell: indexPath.item == 0)
         return cell ?? UICollectionViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -131,5 +137,15 @@ extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
+    }
+}
+
+extension HomeViewController: HomeDelegate {
+    func presentViewController(viewController: UIViewController, animated: Bool) {
+        present(viewController, animated: true, completion: nil)
+    }
+    
+    func goToCommentsSection() {
+        viewModel.goToCommentsSection()
     }
 }

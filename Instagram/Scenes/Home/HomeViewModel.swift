@@ -7,16 +7,33 @@
 //
 
 import Foundation
+import UIKit
+
+protocol HomeViewModelNavigationDelegate: AnyObject {
+    func goToCommentsSection()
+}
+
+protocol HomeDelegate: AnyObject {
+    func presentViewController(viewController: UIViewController, animated: Bool)
+    func goToCommentsSection()
+}
 
 protocol HomeViewModelProtocol: AnyObject {
+    func goToCommentsSection()
 }
 
 class HomeViewModel {
     private var service: HomeServiceProtocol
+    private weak var navigationDelegate: HomeViewModelNavigationDelegate?
 
-    init(service: HomeServiceProtocol = HomeService()) {
+    init(navigationDelegate: HomeViewModelNavigationDelegate? = nil, service: HomeServiceProtocol = HomeService()) {
+        self.navigationDelegate = navigationDelegate
         self.service = service
     }
 }
 
-extension HomeViewModel: HomeViewModelProtocol {}
+extension HomeViewModel: HomeViewModelProtocol {
+    func goToCommentsSection() {
+        navigationDelegate?.goToCommentsSection()
+    }
+}

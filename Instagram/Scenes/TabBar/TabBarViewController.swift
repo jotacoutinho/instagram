@@ -22,12 +22,14 @@ final class TabBarViewController: UIViewController {
     @IBOutlet weak var tabBar: UITabBar! {
         didSet {
             tabBar.tintColor = .secondaryColor
+            tabBar.backgroundColor = .black
+            tabBar.isTranslucent = false
         }
     }
     
     @IBOutlet weak var containerView: UIView! {
         didSet {
-            
+            containerView.backgroundColor = .primaryColor
         }
     }
     
@@ -69,6 +71,7 @@ final class TabBarViewController: UIViewController {
     
     // MARK: Variables
     let viewModel: TabBarViewModelProtocol
+    var currentTabViewController: UIViewController = UIViewController()
 
     // MARK: Life Cycle
     init(viewModel: TabBarViewModelProtocol) {
@@ -86,14 +89,20 @@ final class TabBarViewController: UIViewController {
         super.viewDidLoad()
         
         configureNavigationBar()
-        tabBar.delegate = self
-        tabBar.selectedItem = tabBar.items?.first
+        configureTabBar()
         setupBinds()
     }
 
     // MARK: Functions
     private func setupBinds() {
         
+    }
+    
+    private func configureTabBar() {
+        tabBar.delegate = self
+        tabBar.selectedItem = tabBar.items?.first
+        currentTabViewController = viewModel.goToHomeTab()
+        updateCurrentTab()
     }
     
     private func configureNavigationBar() {
@@ -126,42 +135,47 @@ final class TabBarViewController: UIViewController {
         navigationItem.rightBarButtonItems = [directButton, igtvButton]
     }
     
-    @objc func didTapDirectButton() {
+    @objc private func didTapDirectButton() {
         
     }
     
-    @objc func didTapIGTVButton() {
+    @objc private func didTapIGTVButton() {
         
     }
     
-    @objc func didTapCameraButton() {
+    @objc private func didTapCameraButton() {
         
+    }
+    
+    private func updateCurrentTab() {
+        for view in containerView.subviews {
+            view.removeFromSuperview()
+        }
+        
+        containerView.addSubview(currentTabViewController.view)
+        addChild(currentTabViewController)
+        currentTabViewController.didMove(toParent: self)
+        currentTabViewController.view.frame = containerView.bounds
     }
 }
 
 extension TabBarViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        var viewController = UIViewController()
         let tab = Tabs(rawValue: item.tag)
-        
         switch tab {
         case .home:
-            viewController = HomeViewController(viewModel: HomeViewModel())
-            viewController.view.frame = containerView.bounds
+            currentTabViewController = viewModel.goToHomeTab()
 //        case .search:
 //        case .add:
 //        case .activity:
 //        case .profile:
         default:
-            viewController.view.backgroundColor = UIColor(red: CGFloat.random(in: 0...1),
+            currentTabViewController = UIViewController()
+            currentTabViewController.view.backgroundColor = UIColor(red: CGFloat.random(in: 0...1),
                                                           green: CGFloat.random(in: 0...1),
                                                           blue: CGFloat.random(in: 0...1),
                                                           alpha: 1)
         }
-        
-        containerView.addSubview(viewController.view)
-        addChild(viewController)
-        viewController.didMove(toParent: self)
-        viewController.view.frame = containerView.bounds
+        updateCurrentTab()
     }
 }

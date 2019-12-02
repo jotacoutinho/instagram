@@ -39,9 +39,11 @@ extension AppCoordinator: LaunchScreenNavigationDelegate {
    func goToTabBarScene() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
+            
             self.navigationController.navigationBar.tintColor = .secondaryColor
-            self.navigationController.navigationBar.barStyle = .black
+            self.navigationController.navigationBar.isTranslucent = false
             self.navigationController.navigationBar.isHidden = false
+            
             let coordinator = TabBarCoordinator(presenter: self.navigationController)
             self.add(childCoordinator: coordinator)
             coordinator.start()

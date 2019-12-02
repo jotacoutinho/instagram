@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 protocol TabBarViewModelNavigationDelegate: AnyObject {
+    func goToHomeTab() -> UIViewController
 }
 
 protocol TabBarViewModelProtocol: AnyObject {
+    func goToHomeTab() -> UIViewController
 }
 
 class TabBarViewModel {
@@ -24,4 +27,8 @@ class TabBarViewModel {
     }
 }
 
-extension TabBarViewModel: TabBarViewModelProtocol {}
+extension TabBarViewModel: TabBarViewModelProtocol {
+    func goToHomeTab() -> UIViewController {
+        return navigationDelegate?.goToHomeTab() ?? UIViewController()
+    }
+}

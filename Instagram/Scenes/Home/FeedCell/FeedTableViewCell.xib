@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +27,6 @@
                                         <rect key="frame" x="1" y="1" width="38" height="38"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="vDP-5B-WoN" firstAttribute="top" secondItem="Hj9-l8-jgG" secondAttribute="top" constant="1" id="NHQ-GZ-cQp"/>
                                     <constraint firstAttribute="width" secondItem="Hj9-l8-jgG" secondAttribute="height" multiplier="1:1" id="QKG-On-c6I"/>
@@ -71,7 +71,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Hj9-l8-jgG" firstAttribute="leading" secondItem="4ne-J2-O0Q" secondAttribute="leading" constant="16" id="7Ah-qp-Bid"/>
                             <constraint firstItem="urn-eg-WRn" firstAttribute="top" secondItem="4ne-J2-O0Q" secondAttribute="top" constant="8" id="Q26-yu-wnv"/>
@@ -157,7 +156,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="TD8-FX-VmX" firstAttribute="top" secondItem="N4O-Kf-ZiW" secondAttribute="top" constant="2" id="8Jy-ny-r8o"/>
                             <constraint firstItem="LFJ-Ya-5nV" firstAttribute="leading" secondItem="N4O-Kf-ZiW" secondAttribute="leading" constant="8" id="9j9-qT-HPc"/>
@@ -184,7 +182,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9qy-Ly-p5S" secondAttribute="trailing" constant="8" id="AbM-Uy-ebL"/>
                             <constraint firstItem="9qy-Ly-p5S" firstAttribute="top" secondItem="np3-SJ-QR3" secondAttribute="top" constant="8" id="QzZ-Lq-hke"/>
@@ -202,7 +200,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="TgL-m9-zuW" firstAttribute="leading" secondItem="vqy-Pm-0Ua" secondAttribute="leading" constant="16" id="KkS-15-aN1"/>
                             <constraint firstAttribute="trailing" secondItem="TgL-m9-zuW" secondAttribute="trailing" id="Kxt-gP-PX2"/>
@@ -231,7 +228,6 @@
                                         <rect key="frame" x="1" y="1" width="33" height="33"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="tRB-Z4-SPW" secondAttribute="trailing" constant="1" id="2hD-z6-EUQ"/>
                                     <constraint firstAttribute="bottom" secondItem="tRB-Z4-SPW" secondAttribute="bottom" constant="1" id="AEL-CS-0zy"/>
@@ -256,7 +252,7 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="x73-dz-coT" secondAttribute="trailing" constant="96" id="3I4-dP-UdQ"/>
                             <constraint firstItem="IF9-nI-e2y" firstAttribute="top" secondItem="oRU-tK-kC0" secondAttribute="bottom" constant="4" id="6oY-xE-S8e"/>
@@ -273,6 +269,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="primaryColor"/>
                 <constraints>
                     <constraint firstItem="vqy-Pm-0Ua" firstAttribute="top" secondItem="np3-SJ-QR3" secondAttribute="bottom" id="1Rl-eP-cgO"/>
                     <constraint firstItem="vqy-Pm-0Ua" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5Qq-O5-aZN"/>
@@ -328,5 +325,8 @@
     <resources>
         <image name="jota" width="320" height="320"/>
         <image name="woe" width="477.5" height="357.5"/>
+        <namedColor name="primaryColor">
+            <color red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

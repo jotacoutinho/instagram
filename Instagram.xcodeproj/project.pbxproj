@@ -28,6 +28,7 @@
 		5C82FD102390039D0018ABB7 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C82FD0B2390039D0018ABB7 /* HomeService.swift */; };
 		5C82FD18239005240018ABB7 /* StoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C82FD16239005240018ABB7 /* StoriesCollectionViewCell.swift */; };
 		5C82FD19239005240018ABB7 /* StoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C82FD17239005240018ABB7 /* StoriesCollectionViewCell.xib */; };
+		5CDB5B7123957E84006D1F91 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB5B7023957E84006D1F91 /* HomeCoordinator.swift */; };
 		5CE58682239070D400242721 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE58680239070D400242721 /* FeedTableViewCell.swift */; };
 		5CE58683239070D400242721 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CE58681239070D400242721 /* FeedTableViewCell.xib */; };
 		5CF64CB1238EB5C800BD492D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF64CB0238EB5C800BD492D /* AppDelegate.swift */; };
@@ -38,6 +39,17 @@
 		5CF64CF4238ED65500BD492D /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF64CF1238ED65500BD492D /* Lottie.framework */; };
 		5CF64CF6238ED65500BD492D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF64CF2238ED65500BD492D /* Alamofire.framework */; };
 		5CF64CF8238ED65500BD492D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF64CF3238ED65500BD492D /* Kingfisher.framework */; };
+		5CFFBAC62395490600E6384B /* CommentsSectionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFBAC12395490600E6384B /* CommentsSectionObject.swift */; };
+		5CFFBAC72395490600E6384B /* CommentsSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFBAC22395490600E6384B /* CommentsSectionViewController.swift */; };
+		5CFFBAC82395490600E6384B /* CommentsSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFBAC32395490600E6384B /* CommentsSectionViewModel.swift */; };
+		5CFFBAC92395490600E6384B /* CommentsSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CFFBAC42395490600E6384B /* CommentsSectionViewController.xib */; };
+		5CFFBACA2395490600E6384B /* CommentsSectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFBAC52395490600E6384B /* CommentsSectionService.swift */; };
+		5CFFBACE239549A800E6384B /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFBACC239549A800E6384B /* CommentTableViewCell.swift */; };
+		5CFFBACF239549A800E6384B /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CFFBACD239549A800E6384B /* CommentTableViewCell.xib */; };
+		5CFFBAD4239549FB00E6384B /* CommentsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFBAD2239549FB00E6384B /* CommentsHeaderView.swift */; };
+		5CFFBAD5239549FB00E6384B /* CommentsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CFFBAD3239549FB00E6384B /* CommentsHeaderView.xib */; };
+		5CFFBAD823954A3E00E6384B /* AddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFBAD623954A3E00E6384B /* AddCommentView.swift */; };
+		5CFFBAD923954A3E00E6384B /* AddCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CFFBAD723954A3E00E6384B /* AddCommentView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +91,7 @@
 		5C82FD0B2390039D0018ABB7 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		5C82FD16239005240018ABB7 /* StoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		5C82FD17239005240018ABB7 /* StoriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoriesCollectionViewCell.xib; sourceTree = "<group>"; };
+		5CDB5B7023957E84006D1F91 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		5CE58680239070D400242721 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		5CE58681239070D400242721 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		5CF64CAD238EB5C800BD492D /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +108,17 @@
 		5CF64CF1238ED65500BD492D /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		5CF64CF2238ED65500BD492D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		5CF64CF3238ED65500BD492D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		5CFFBAC12395490600E6384B /* CommentsSectionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsSectionObject.swift; sourceTree = "<group>"; };
+		5CFFBAC22395490600E6384B /* CommentsSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsSectionViewController.swift; sourceTree = "<group>"; };
+		5CFFBAC32395490600E6384B /* CommentsSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsSectionViewModel.swift; sourceTree = "<group>"; };
+		5CFFBAC42395490600E6384B /* CommentsSectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsSectionViewController.xib; sourceTree = "<group>"; };
+		5CFFBAC52395490600E6384B /* CommentsSectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsSectionService.swift; sourceTree = "<group>"; };
+		5CFFBACC239549A800E6384B /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		5CFFBACD239549A800E6384B /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		5CFFBAD2239549FB00E6384B /* CommentsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsHeaderView.swift; sourceTree = "<group>"; };
+		5CFFBAD3239549FB00E6384B /* CommentsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsHeaderView.xib; sourceTree = "<group>"; };
+		5CFFBAD623954A3E00E6384B /* AddCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentView.swift; sourceTree = "<group>"; };
+		5CFFBAD723954A3E00E6384B /* AddCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCommentView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +173,7 @@
 		5C548B0B238EE0B8004F3BCA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5CFFBAC02395487E00E6384B /* Comments Section */,
 				5C82FD062390034E0018ABB7 /* Home */,
 				5C548B0D238EE0DC004F3BCA /* TabBar */,
 				5C548B03238EDFA7004F3BCA /* LaunchScreen */,
@@ -210,6 +235,7 @@
 			children = (
 				5C82FD11239004660018ABB7 /* FeedCell */,
 				5C82FD052390030E0018ABB7 /* StoriesCell */,
+				5CDB5B7023957E84006D1F91 /* HomeCoordinator.swift */,
 				5C82FD072390039D0018ABB7 /* HomeObject.swift */,
 				5C82FD082390039D0018ABB7 /* HomeViewController.swift */,
 				5C82FD092390039D0018ABB7 /* HomeViewModel.swift */,
@@ -286,6 +312,48 @@
 				5CF64CF1238ED65500BD492D /* Lottie.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CFFBAC02395487E00E6384B /* Comments Section */ = {
+			isa = PBXGroup;
+			children = (
+				5CFFBAC12395490600E6384B /* CommentsSectionObject.swift */,
+				5CFFBAC22395490600E6384B /* CommentsSectionViewController.swift */,
+				5CFFBAC32395490600E6384B /* CommentsSectionViewModel.swift */,
+				5CFFBAC42395490600E6384B /* CommentsSectionViewController.xib */,
+				5CFFBAC52395490600E6384B /* CommentsSectionService.swift */,
+				5CFFBAD0239549AC00E6384B /* Comments Header */,
+				5CFFBACB2395498600E6384B /* Comment Cell */,
+				5CFFBAD1239549BE00E6384B /* Add Comment View */,
+			);
+			path = "Comments Section";
+			sourceTree = "<group>";
+		};
+		5CFFBACB2395498600E6384B /* Comment Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5CFFBACC239549A800E6384B /* CommentTableViewCell.swift */,
+				5CFFBACD239549A800E6384B /* CommentTableViewCell.xib */,
+			);
+			path = "Comment Cell";
+			sourceTree = "<group>";
+		};
+		5CFFBAD0239549AC00E6384B /* Comments Header */ = {
+			isa = PBXGroup;
+			children = (
+				5CFFBAD2239549FB00E6384B /* CommentsHeaderView.swift */,
+				5CFFBAD3239549FB00E6384B /* CommentsHeaderView.xib */,
+			);
+			path = "Comments Header";
+			sourceTree = "<group>";
+		};
+		5CFFBAD1239549BE00E6384B /* Add Comment View */ = {
+			isa = PBXGroup;
+			children = (
+				5CFFBAD623954A3E00E6384B /* AddCommentView.swift */,
+				5CFFBAD723954A3E00E6384B /* AddCommentView.xib */,
+			);
+			path = "Add Comment View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,12 +464,16 @@
 			files = (
 				5CE58683239070D400242721 /* FeedTableViewCell.xib in Resources */,
 				5C548B23238EEBAC004F3BCA /* Colors.xcassets in Resources */,
+				5CFFBAD923954A3E00E6384B /* AddCommentView.xib in Resources */,
 				5C548B20238EEA4F004F3BCA /* TabBarViewController.xib in Resources */,
+				5CFFBAC92395490600E6384B /* CommentsSectionViewController.xib in Resources */,
 				5CF64CBD238EB5D300BD492D /* LaunchScreen.storyboard in Resources */,
 				5CF64CBA238EB5D300BD492D /* Images.xcassets in Resources */,
+				5CFFBAD5239549FB00E6384B /* CommentsHeaderView.xib in Resources */,
 				5C548B08238EDFCC004F3BCA /* LaunchScreenViewController.xib in Resources */,
 				5C82FD0F2390039D0018ABB7 /* HomeViewController.xib in Resources */,
 				5C82FD19239005240018ABB7 /* StoriesCollectionViewCell.xib in Resources */,
+				5CFFBACF239549A800E6384B /* CommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +543,9 @@
 				5C548B1F238EEA4F004F3BCA /* TabBarViewModel.swift in Sources */,
 				5C548B25238EECE9004F3BCA /* UIColor.swift in Sources */,
 				5CE58682239070D400242721 /* FeedTableViewCell.swift in Sources */,
+				5CFFBACE239549A800E6384B /* CommentTableViewCell.swift in Sources */,
+				5CFFBACA2395490600E6384B /* CommentsSectionService.swift in Sources */,
+				5CFFBAD4239549FB00E6384B /* CommentsHeaderView.swift in Sources */,
 				5C548B1D238EEA4F004F3BCA /* TabBarObject.swift in Sources */,
 				5CF64CB1238EB5C800BD492D /* AppDelegate.swift in Sources */,
 				5C548B0F238EE114004F3BCA /* AppCoordinator.swift in Sources */,
@@ -479,11 +554,16 @@
 				5C82FD0C2390039D0018ABB7 /* HomeObject.swift in Sources */,
 				5C548B07238EDFCC004F3BCA /* LaunchScreenViewController.swift in Sources */,
 				5C548B1E238EEA4F004F3BCA /* TabBarViewController.swift in Sources */,
+				5CFFBAC62395490600E6384B /* CommentsSectionObject.swift in Sources */,
 				5C548B21238EEA4F004F3BCA /* TabBarService.swift in Sources */,
 				5C82FD18239005240018ABB7 /* StoriesCollectionViewCell.swift in Sources */,
+				5CFFBAD823954A3E00E6384B /* AddCommentView.swift in Sources */,
 				5C548B1C238EEA4F004F3BCA /* TabBarCoordinator.swift in Sources */,
 				5C548B09238EDFCC004F3BCA /* LaunchScreenViewModel.swift in Sources */,
+				5CFFBAC72395490600E6384B /* CommentsSectionViewController.swift in Sources */,
+				5CDB5B7123957E84006D1F91 /* HomeCoordinator.swift in Sources */,
 				5C548B11238EE144004F3BCA /* Constants.swift in Sources */,
+				5CFFBAC82395490600E6384B /* CommentsSectionViewModel.swift in Sources */,
 				5C82FD0E2390039D0018ABB7 /* HomeViewModel.swift in Sources */,
 				5C548B15238EE16C004F3BCA /* Coordinator.swift in Sources */,
 			);

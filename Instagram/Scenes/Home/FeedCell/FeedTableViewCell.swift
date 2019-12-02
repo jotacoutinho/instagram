@@ -13,33 +13,37 @@ class FeedTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var headerView: UIView! {
         didSet {
-            
+            headerView.backgroundColor = .primaryColor
         }
     }
     
-    @IBOutlet weak var postView: UIView!
+    @IBOutlet weak var postView: UIView! {
+        didSet {
+            postView.backgroundColor = .primaryColor
+        }
+    }
     
     @IBOutlet weak var commandsView: UIView! {
         didSet {
-            
+            commandsView.backgroundColor = .primaryColor
         }
     }
        
     @IBOutlet weak var likesView: UIView! {
         didSet {
-            likesView.backgroundColor = .clear
+            likesView.backgroundColor = .primaryColor
         }
     }
        
     @IBOutlet weak var descriptionView: UIView! {
         didSet {
-               
+            descriptionView.backgroundColor = .primaryColor
         }
     }
        
     @IBOutlet weak var commentView: UIView! {
         didSet {
-            commentView.backgroundColor = .clear
+            commentView.backgroundColor = .primaryColor
         }
     }
     
@@ -154,6 +158,7 @@ class FeedTableViewCell: UITableViewCell {
                                           value: UIColor.highlightColor,
                                           range: NSRange(location: 31, length: 22))
             descriptionLabel.attributedText = attributedString
+            descriptionLabel.numberOfLines = 0
         }
     }
     
@@ -173,6 +178,7 @@ class FeedTableViewCell: UITableViewCell {
             commentUserImageView.layer.cornerRadius = commentUserImageView.frame.height/2
             commentUserImageView.contentMode = .scaleAspectFill
             commentUserImageView.clipsToBounds = true
+            commentUserImageView.backgroundColor = .primaryColor
         }
     }
     
@@ -196,17 +202,18 @@ class FeedTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @IBAction func moreButtonAction(_ sender: Any) {
-        rootViewController.present(actionSheet, animated: true, completion: nil)
+        delegate?.presentViewController(viewController: actionSheet, animated: true)
     }
     
     @IBAction func likeButtonAction(_ sender: Any) {
         likeStatus = !likeStatus
         likeButton.setImage(UIImage(named: likeStatus ? "likeButtonFilled" : "likeButton"), for: .normal)
+        likeButton.tintColor = likeStatus ? .likeColor : .secondaryColor
         showLikeAnimation()
     }
     
     @IBAction func commentButtonAction(_ sender: Any) {
-        // TODO: open comment section
+        delegate?.goToCommentsSection()
     }
     
     @IBAction func messageButtonAction(_ sender: Any) {
@@ -219,7 +226,7 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     @IBAction func viewAllCommentsButtonAction(_ sender: Any) {
-        // TODO: open comment section
+        delegate?.goToCommentsSection()
     }
     
     @IBAction func didTouchAddCommentTextField(_ sender: Any) {
@@ -234,20 +241,20 @@ class FeedTableViewCell: UITableViewCell {
     var likeStatus: Bool = false
     var saveStatus: Bool = false
     var actionSheet: UIAlertController = UIAlertController()
-    private var rootViewController: UIViewController = UIViewController()
+    private weak var delegate: HomeDelegate?
     
     // MARK: - Life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        backgroundColor = UIColor.clear
+        contentView.backgroundColor = .primaryColor
         
         configureMoreActionSheet()
     }
     
     // MARK: - Custom methods
-    func configure(rootVC: UIViewController){
-        rootViewController = rootVC
+    func configure(delegate: HomeDelegate) {
+        self.delegate = delegate
     }
     
     func showLikeAnimation() {

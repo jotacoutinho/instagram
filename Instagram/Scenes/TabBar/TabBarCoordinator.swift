@@ -35,4 +35,11 @@ class TabBarCoordinator: Coordinator {
     }
 }
 
-extension TabBarCoordinator: TabBarViewModelNavigationDelegate {}
+extension TabBarCoordinator: TabBarViewModelNavigationDelegate {
+    func goToHomeTab() -> UIViewController {
+        let homeCoordinator = HomeCoordinator(presenter: presenter)
+        add(childCoordinator: homeCoordinator)
+        homeCoordinator.start()
+        return homeCoordinator.getViewController()
+    }
+}
