@@ -64,6 +64,7 @@ class FeedTableViewCell: UITableViewCell {
             usernameLabel.text = "jotacoutinho94"
             usernameLabel.font = UIFont.boldSystemFont(ofSize: 14)
             usernameLabel.textColor = .secondaryColor
+            usernameLabel.isUserInteractionEnabled = true
         }
     }
     
@@ -72,6 +73,7 @@ class FeedTableViewCell: UITableViewCell {
             locationLabel.text = "Rune Midgard"
             locationLabel.font = UIFont.systemFont(ofSize: 14)
             locationLabel.textColor = .secondaryColor
+            locationLabel.isUserInteractionEnabled = true
         }
     }
     
@@ -174,6 +176,7 @@ class FeedTableViewCell: UITableViewCell {
                                           value: UIFont.boldSystemFont(ofSize: 14),
                                           range: NSRange(location: 17, length: 6))
             likesLabel.attributedText = attributedString
+            likesLabel.isUserInteractionEnabled = true
         }
     }
     
@@ -192,6 +195,7 @@ class FeedTableViewCell: UITableViewCell {
                                           range: NSRange(location: 31, length: 22))
             descriptionLabel.attributedText = attributedString
             descriptionLabel.numberOfLines = 0
+            descriptionLabel.isUserInteractionEnabled = true
         }
     }
     
@@ -294,6 +298,46 @@ class FeedTableViewCell: UITableViewCell {
     // MARK: - Custom methods
     func configure(delegate: HomeDelegate) {
         self.delegate = delegate
+        configureLabelsRecognizers()
+    }
+    
+    func configureLabelsRecognizers() {
+        usernameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(usernameLabelTapGestureRecognizer(recognizer:))))
+        locationLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(locationLabelTapGestureRecognizer(recognizer:))))
+        likesLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(likesLabelTapGestureRecognizer(recognizer:))))
+        descriptionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(descriptionLabelTapGestureRecognizer(recognizer:))))
+    }
+    
+    @objc func usernameLabelTapGestureRecognizer(recognizer: UITapGestureRecognizer) {
+        print("goToProfileTab")
+        // TODO: go to profile tab
+    }
+    
+    @objc func locationLabelTapGestureRecognizer(recognizer: UITapGestureRecognizer) {
+        print("goToMapView")
+        // TODO: go to map view
+    }
+    
+    @objc func likesLabelTapGestureRecognizer(recognizer: UITapGestureRecognizer) {
+        let highlightedUserRange = NSRange(location: 9, length: 3)
+        let othersRange = NSRange(location: 17, length: 6)
+        
+        if recognizer.didTapAttributedTextInLabel(label: likesLabel, inRange: highlightedUserRange) {
+            print("hey")
+        } else if recognizer.didTapAttributedTextInLabel(label: likesLabel, inRange: othersRange) {
+            print("ho")
+        }
+    }
+    
+    @objc func descriptionLabelTapGestureRecognizer(recognizer: UITapGestureRecognizer) {
+        let usernameRange = NSRange(location: 0, length: 14)
+        let hashtagRange = NSRange(location: 31, length: 22)
+        
+        if recognizer.didTapAttributedTextInLabel(label: descriptionLabel, inRange: usernameRange) {
+            print("hey")
+        } else if recognizer.didTapAttributedTextInLabel(label: descriptionLabel, inRange: hashtagRange) {
+            print("ho")
+        }
     }
     
     func showLikeAnimation() {

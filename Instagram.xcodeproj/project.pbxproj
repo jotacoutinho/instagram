@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C23DC6B2396CBC8001D0F69 /* UITapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C23DC6A2396CBC8001D0F69 /* UITapGestureRecognizer.swift */; };
 		5C548B07238EDFCC004F3BCA /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548B04238EDFCC004F3BCA /* LaunchScreenViewController.swift */; };
 		5C548B08238EDFCC004F3BCA /* LaunchScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C548B05238EDFCC004F3BCA /* LaunchScreenViewController.xib */; };
 		5C548B09238EDFCC004F3BCA /* LaunchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548B06238EDFCC004F3BCA /* LaunchScreenViewModel.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C23DC6A2396CBC8001D0F69 /* UITapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizer.swift; sourceTree = "<group>"; };
 		5C548B04238EDFCC004F3BCA /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		5C548B05238EDFCC004F3BCA /* LaunchScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreenViewController.xib; sourceTree = "<group>"; };
 		5C548B06238EDFCC004F3BCA /* LaunchScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewModel.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				5C548B24238EECE9004F3BCA /* UIColor.swift */,
+				5C23DC6A2396CBC8001D0F69 /* UITapGestureRecognizer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				5C548B1D238EEA4F004F3BCA /* TabBarObject.swift in Sources */,
 				5CF64CB1238EB5C800BD492D /* AppDelegate.swift in Sources */,
 				5C548B0F238EE114004F3BCA /* AppCoordinator.swift in Sources */,
+				5C23DC6B2396CBC8001D0F69 /* UITapGestureRecognizer.swift in Sources */,
 				5C82FD0D2390039D0018ABB7 /* HomeViewController.swift in Sources */,
 				5C82FD102390039D0018ABB7 /* HomeService.swift in Sources */,
 				5C82FD0C2390039D0018ABB7 /* HomeObject.swift in Sources */,
