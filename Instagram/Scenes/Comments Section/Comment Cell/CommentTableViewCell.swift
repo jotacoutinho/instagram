@@ -10,6 +10,7 @@ import UIKit
 
 class CommentTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlets
     @IBOutlet weak var borderView: UIView! {
         didSet {
             borderView.backgroundColor = .clear
@@ -35,6 +36,14 @@ class CommentTableViewCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var likeButton: UIButton! {
+        didSet {
+            likeButton.setTitle("", for: .normal)
+            likeButton.setImage(UIImage(named: "likeButton")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            likeButton.tintColor = .secondaryColor
+        }
+    }
+    
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
             dateLabel.text = "november 29th"
@@ -42,7 +51,33 @@ class CommentTableViewCell: UITableViewCell {
             dateLabel.textColor = .lightGray
         }
     }
-
+    
+    @IBOutlet weak var likesLabel: UILabel! {
+        didSet {
+            likesLabel.text = "11 likes"
+            likesLabel.font = UIFont.boldSystemFont(ofSize: 12)
+            likesLabel.textColor = .lightGray
+        }
+    }
+    
+    @IBOutlet weak var replyLabel: UILabel! {
+        didSet {
+            replyLabel.text = "Reply"
+            replyLabel.font = UIFont.boldSystemFont(ofSize: 12)
+            replyLabel.textColor = .lightGray
+        }
+    }
+    
+    // MARK: - Actions
+    @IBAction func likeButtonAction(_ sender: Any) {
+        likeStatus = !likeStatus
+        likeButton.setImage(UIImage(named: likeStatus ? "likeButtonFilled" : "likeButton"), for: .normal)
+        likeButton.tintColor = likeStatus ? .likeColor : .secondaryColor
+    }
+    
+    // MARK: - Variables
+    private var likeStatus: Bool = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none

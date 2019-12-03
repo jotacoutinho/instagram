@@ -12,16 +12,18 @@ final class CommentsSectionViewController: UIViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak var tableView: UITableView! {
-           didSet {
-               tableView.delegate = self
-               tableView.dataSource = self
-               tableView.separatorStyle = .none
-               tableView.estimatedRowHeight = 100
-               tableView.showsVerticalScrollIndicator = false
-               tableView.register(UINib(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: "commentTableViewCell")
-               tableView.backgroundColor = .primaryColor
-           }
-       }
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.separatorStyle = .none
+            tableView.estimatedRowHeight = 100
+            tableView.showsVerticalScrollIndicator = false
+            tableView.register(UINib(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: "commentTableViewCell")
+            tableView.backgroundColor = .primaryColor
+            tableView.sectionHeaderHeight = UITableView.automaticDimension
+            tableView.estimatedSectionHeaderHeight = 100
+        }
+    }
     
     // MARK: Variables
     let viewModel: CommentsSectionViewModelProtocol
@@ -40,20 +42,12 @@ final class CommentsSectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureTableViewHeader()
-        
         setupBinds()
     }
 
     // MARK: Functions
     private func setupBinds() {
         
-    }
-    
-    private func configureTableViewHeader() {
-        let header = CommentsHeaderView(parentView: view)
-        view.addSubview(header)
-        tableView.tableHeaderView = header
     }
 }
 
@@ -64,23 +58,31 @@ extension CommentsSectionViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentTableViewCell", for: indexPath) as? CommentTableViewCell
-//        cell?.configure(rootVC: self)
         return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = CommentsHeaderView(parentView: view)
+        header.contentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            header.contentView.leadingAnchor.constraint(equalTo: header.leadingAnchor),
+            header.contentView.trailingAnchor.constraint(equalTo: header.trailingAnchor),
+            header.contentView.topAnchor.constraint(equalTo: header.topAnchor),
+            header.contentView.bottomAnchor.constraint(equalTo: header.bottomAnchor)
+        ])
+        header.contentView.clipsToBounds = true
+        return header
     }
 }
 
 // MARK: - UITableViewDelegate
 extension CommentsSectionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
 }

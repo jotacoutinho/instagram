@@ -94,6 +94,38 @@ class FeedTableViewCell: UITableViewCell {
             likeImageView.isHidden = true
         }
     }
+    
+    @IBOutlet weak var imageSavedOffsetConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var imageSavedView: UIView! {
+        didSet {
+            imageSavedView.backgroundColor = UIColor.primaryColor.withAlphaComponent(0.75)
+        }
+    }
+    
+    @IBOutlet weak var savedImageView: UIImageView! {
+        didSet {
+            savedImageView.image = UIImage(named: "woe")
+            savedImageView.contentMode = .scaleAspectFill
+        }
+    }
+    
+    @IBOutlet weak var savedLabel: UILabel! {
+        didSet {
+            savedLabel.text = "Saved"
+            savedLabel.font = UIFont.systemFont(ofSize: 14)
+            savedLabel.textColor = .secondaryColor
+        }
+    }
+    
+    @IBOutlet weak var saveToExternalButton: UIButton! {
+        didSet {
+            saveToExternalButton.tintColor = .highlightColor
+            saveToExternalButton.setTitle("Save to External", for: .normal)
+            saveToExternalButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        }
+    }
+    
     // MARK: - Commands View
     @IBOutlet weak var likeButton: UIButton! {
         didSet {
@@ -116,6 +148,7 @@ class FeedTableViewCell: UITableViewCell {
             messageButton.setTitle("", for: .normal)
             messageButton.setImage(UIImage(named: "directButton"), for: .normal)
             messageButton.tintColor = .secondaryColor
+            messageButton.isEnabled = false
         }
     }
     
@@ -222,7 +255,13 @@ class FeedTableViewCell: UITableViewCell {
     
     @IBAction func saveButtonAction(_ sender: Any) {
         saveStatus = !saveStatus
-        saveButton.setImage(UIImage(named: likeStatus ? "saveButtonFilled" : "saveButton"), for: .normal)
+        saveButton.setImage(UIImage(named: saveStatus ? "saveButtonFilled" : "saveButton"), for: .normal)
+        if saveStatus {
+            showImageSavedAnimation()
+            // TODO: save to user profile
+        } else {
+            // TODO: remove from user profile
+        }
     }
     
     @IBAction func viewAllCommentsButtonAction(_ sender: Any) {
@@ -259,6 +298,19 @@ class FeedTableViewCell: UITableViewCell {
     
     func showLikeAnimation() {
         // TODO: show animation on top of the image when post is liked
+    }
+    
+    func showImageSavedAnimation() {
+        imageSavedOffsetConstraint.constant = 0
+        delegate?.showImageSavedAnimation(imageView: postImageView)
+        UIView.animate(withDuration: 1, animations: {
+            self.layoutIfNeeded()
+        }, completion: { _ in
+            self.imageSavedOffsetConstraint.constant = -self.imageSavedView.frame.height
+            UIView.animate(withDuration: 1, delay: 2, options: .curveEaseIn, animations: {
+                self.layoutIfNeeded()
+            }, completion: nil)
+        })
     }
     
     func configureMoreActionSheet() {

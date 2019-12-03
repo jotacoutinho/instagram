@@ -15,6 +15,7 @@ protocol HomeViewModelNavigationDelegate: AnyObject {
 
 protocol HomeDelegate: AnyObject {
     func presentViewController(viewController: UIViewController, animated: Bool)
+    func showImageSavedAnimation(imageView: UIImageView)
     func goToCommentsSection()
 }
 

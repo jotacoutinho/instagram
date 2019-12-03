@@ -99,15 +99,56 @@
                                     <constraint firstAttribute="width" secondItem="LKC-l5-Scn" secondAttribute="height" multiplier="1:1" id="mHa-JU-Gcp"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z3X-UX-QUW" userLabel="Image Saved View">
+                                <rect key="frame" x="0.0" y="320" width="320" height="44"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jota" translatesAutoresizingMaskIntoConstraints="NO" id="68K-9C-3f0">
+                                        <rect key="frame" x="16" y="8" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="68K-9C-3f0" secondAttribute="height" multiplier="1:1" id="jFo-NJ-CGC"/>
+                                            <constraint firstAttribute="height" constant="28" id="ylM-vb-GCz"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oR-n4-CFH" userLabel="Saved Label">
+                                        <rect key="frame" x="60" y="8" width="35" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" name="secondaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfp-at-Gxd" userLabel="Save To External Button">
+                                        <rect key="frame" x="212" y="8" width="92" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="Save to External">
+                                            <color key="titleColor" red="0.77647058820000003" green="0.61960784310000006" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="68K-9C-3f0" secondAttribute="bottom" constant="8" id="EPL-Lw-ria"/>
+                                    <constraint firstItem="68K-9C-3f0" firstAttribute="top" secondItem="z3X-UX-QUW" secondAttribute="top" constant="8" id="HvL-jv-5SX"/>
+                                    <constraint firstAttribute="bottom" secondItem="xfp-at-Gxd" secondAttribute="bottom" constant="8" id="KhO-Fc-xZE"/>
+                                    <constraint firstItem="xfp-at-Gxd" firstAttribute="top" secondItem="z3X-UX-QUW" secondAttribute="top" constant="8" id="LLE-8p-YIR"/>
+                                    <constraint firstItem="68K-9C-3f0" firstAttribute="leading" secondItem="z3X-UX-QUW" secondAttribute="leading" constant="16" id="MwS-cU-k49"/>
+                                    <constraint firstAttribute="height" constant="44" id="ezv-Er-cnn"/>
+                                    <constraint firstAttribute="bottom" secondItem="2oR-n4-CFH" secondAttribute="bottom" constant="8" id="i3g-KN-xQD"/>
+                                    <constraint firstItem="2oR-n4-CFH" firstAttribute="leading" secondItem="68K-9C-3f0" secondAttribute="trailing" constant="16" id="rrp-y1-iF7"/>
+                                    <constraint firstAttribute="trailing" secondItem="xfp-at-Gxd" secondAttribute="trailing" constant="16" id="tvw-gx-F2w"/>
+                                    <constraint firstItem="2oR-n4-CFH" firstAttribute="top" secondItem="z3X-UX-QUW" secondAttribute="top" constant="8" id="yhV-vm-qLM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="LKC-l5-Scn" firstAttribute="centerY" secondItem="X8i-E7-80d" secondAttribute="centerY" id="0S7-8R-vme"/>
+                            <constraint firstAttribute="trailing" secondItem="z3X-UX-QUW" secondAttribute="trailing" id="FKZ-1D-Feu"/>
                             <constraint firstItem="ppv-ZX-hu9" firstAttribute="leading" secondItem="X8i-E7-80d" secondAttribute="leading" id="GXh-cB-ec7"/>
+                            <constraint firstItem="z3X-UX-QUW" firstAttribute="leading" secondItem="X8i-E7-80d" secondAttribute="leading" id="Uu1-xT-nua"/>
                             <constraint firstAttribute="bottom" secondItem="ppv-ZX-hu9" secondAttribute="bottom" id="c08-6m-VfC"/>
                             <constraint firstItem="ppv-ZX-hu9" firstAttribute="top" secondItem="X8i-E7-80d" secondAttribute="top" id="iVx-4f-S3a"/>
                             <constraint firstAttribute="trailing" secondItem="ppv-ZX-hu9" secondAttribute="trailing" id="qGj-SH-9aL"/>
                             <constraint firstItem="LKC-l5-Scn" firstAttribute="centerX" secondItem="X8i-E7-80d" secondAttribute="centerX" id="unB-i6-R9b"/>
+                            <constraint firstAttribute="bottom" secondItem="z3X-UX-QUW" secondAttribute="bottom" constant="-44" id="wnT-Vv-Zvb"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4O-Kf-ZiW" userLabel="Commands View">
@@ -182,7 +223,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9qy-Ly-p5S" secondAttribute="trailing" constant="8" id="AbM-Uy-ebL"/>
                             <constraint firstItem="9qy-Ly-p5S" firstAttribute="top" secondItem="np3-SJ-QR3" secondAttribute="top" constant="8" id="QzZ-Lq-hke"/>
@@ -252,7 +293,7 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="x73-dz-coT" secondAttribute="trailing" constant="96" id="3I4-dP-UdQ"/>
                             <constraint firstItem="IF9-nI-e2y" firstAttribute="top" secondItem="oRU-tK-kC0" secondAttribute="bottom" constant="4" id="6oY-xE-S8e"/>
@@ -306,6 +347,8 @@
                 <outlet property="headerUserImageView" destination="vDP-5B-WoN" id="KLM-PH-gUR"/>
                 <outlet property="headerUserPictureView" destination="Hj9-l8-jgG" id="bbo-HH-zXW"/>
                 <outlet property="headerView" destination="4ne-J2-O0Q" id="K5s-Td-STd"/>
+                <outlet property="imageSavedOffsetConstraint" destination="wnT-Vv-Zvb" id="ICI-Ek-Coj"/>
+                <outlet property="imageSavedView" destination="z3X-UX-QUW" id="dfl-k4-nCr"/>
                 <outlet property="likeButton" destination="LFJ-Ya-5nV" id="foz-Cv-dOm"/>
                 <outlet property="likeImageView" destination="LKC-l5-Scn" id="Hqw-sR-zHw"/>
                 <outlet property="likesLabel" destination="9qy-Ly-p5S" id="18n-s2-al6"/>
@@ -316,6 +359,9 @@
                 <outlet property="postImageView" destination="ppv-ZX-hu9" id="P0p-RI-nRN"/>
                 <outlet property="postView" destination="X8i-E7-80d" id="iX6-6z-2jJ"/>
                 <outlet property="saveButton" destination="jV9-LY-6M9" id="fY6-H3-1pJ"/>
+                <outlet property="saveToExternalButton" destination="xfp-at-Gxd" id="25b-Kr-ye3"/>
+                <outlet property="savedImageView" destination="68K-9C-3f0" id="VQX-d6-GSJ"/>
+                <outlet property="savedLabel" destination="2oR-n4-CFH" id="aCp-76-gUu"/>
                 <outlet property="usernameLabel" destination="dBV-x1-71j" id="34E-Yx-B4O"/>
                 <outlet property="viewAllCommentsButton" destination="qQF-HY-U3D" id="f7P-wQ-yT3"/>
             </connections>
@@ -327,6 +373,9 @@
         <image name="woe" width="477.5" height="357.5"/>
         <namedColor name="primaryColor">
             <color red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondaryColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

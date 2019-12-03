@@ -36,7 +36,7 @@
                         <viewLayoutGuide key="safeArea" id="KOY-jD-5aX"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEx-t7-Hrc">
-                        <rect key="frame" x="64" y="16" width="240" height="24"/>
+                        <rect key="frame" x="64" y="16" width="35.5" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" name="secondaryColor"/>
                         <nil key="highlightedColor"/>
@@ -64,23 +64,40 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J74-gx-jLY">
+                        <rect key="frame" x="289" y="20.5" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="J74-gx-jLY" secondAttribute="height" multiplier="1:1" id="IER-Pm-l1f"/>
+                            <constraint firstAttribute="height" constant="15" id="kme-Im-Y63"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="likeButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WVt-dE-5eA"/>
+                        </connections>
+                    </button>
                 </subviews>
+                <color key="backgroundColor" name="primaryColor"/>
                 <constraints>
                     <constraint firstItem="6Ox-7J-Zuf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ERh-dw-cnX"/>
                     <constraint firstItem="PFX-Zc-Lp9" firstAttribute="leading" secondItem="6Ox-7J-Zuf" secondAttribute="trailing" constant="8" id="HB6-aV-fYB"/>
                     <constraint firstAttribute="bottom" secondItem="PFX-Zc-Lp9" secondAttribute="bottom" constant="16" id="Og1-8D-Irl"/>
+                    <constraint firstItem="J74-gx-jLY" firstAttribute="centerY" secondItem="IEx-t7-Hrc" secondAttribute="centerY" id="Orp-e8-TXu"/>
                     <constraint firstItem="PFX-Zc-Lp9" firstAttribute="top" secondItem="IEx-t7-Hrc" secondAttribute="bottom" constant="8" id="Twm-nb-Go2"/>
                     <constraint firstItem="6Ox-7J-Zuf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="VAh-bC-hwi"/>
                     <constraint firstItem="IEx-t7-Hrc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="ZR0-iM-sfx"/>
+                    <constraint firstAttribute="trailing" secondItem="J74-gx-jLY" secondAttribute="trailing" constant="16" id="dgk-G0-sYU"/>
+                    <constraint firstItem="J74-gx-jLY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IEx-t7-Hrc" secondAttribute="trailing" constant="16" id="hdf-Pf-W3B"/>
                     <constraint firstItem="IEx-t7-Hrc" firstAttribute="leading" secondItem="6Ox-7J-Zuf" secondAttribute="trailing" constant="8" id="tWy-f0-S9D"/>
                     <constraint firstAttribute="trailing" secondItem="PFX-Zc-Lp9" secondAttribute="trailing" constant="16" id="waa-Kq-1wz"/>
-                    <constraint firstAttribute="trailing" secondItem="IEx-t7-Hrc" secondAttribute="trailing" constant="16" id="yeT-qp-vmi"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="borderView" destination="6Ox-7J-Zuf" id="P7T-A6-Hr6"/>
                 <outlet property="dateLabel" destination="S8j-AB-e4r" id="4MZ-er-c2h"/>
+                <outlet property="likeButton" destination="J74-gx-jLY" id="XJ2-ny-w3d"/>
+                <outlet property="likesLabel" destination="xmx-Fo-W6v" id="p7z-wU-xEW"/>
+                <outlet property="replyLabel" destination="26n-ts-h9o" id="I07-d8-ygB"/>
                 <outlet property="userImageView" destination="81d-6D-L0f" id="DjU-cy-5cT"/>
                 <outlet property="usernameLabel" destination="IEx-t7-Hrc" id="Y8L-YE-4V5"/>
             </connections>
@@ -88,6 +105,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="primaryColor">
+            <color red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="secondaryColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

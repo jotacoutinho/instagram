@@ -29,6 +29,23 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var savedView: UIView! {
+        didSet {
+            savedView.backgroundColor = .clear
+        }
+    }
+    
+    @IBOutlet weak var savedImageTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var savedImageLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var savedImageTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var savedImageBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var savedImageView: UIImageView! {
+        didSet {
+            savedImageView.contentMode = .scaleAspectFill
+            savedImageView.backgroundColor = .clear
+        }
+    }
+    
     // MARK: Variables
     let viewModel: HomeViewModelProtocol
     var storiesCollectionView: UICollectionView?
@@ -143,6 +160,29 @@ extension HomeViewController: UICollectionViewDelegate {
 extension HomeViewController: HomeDelegate {
     func presentViewController(viewController: UIViewController, animated: Bool) {
         present(viewController, animated: true, completion: nil)
+    }
+    
+    func showImageSavedAnimation(imageView: UIImageView) {
+        savedImageView.image = imageView.image
+        savedImageLeadingConstraint.constant = 0
+        savedImageTrailingConstraint.constant = 0
+        savedImageBottomConstraint.constant = 0
+        savedImageTopConstraint.constant = 0
+        savedImageView.isHidden = false
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseIn, animations: {
+                self.savedImageView.alpha = 0
+            }, completion: { _ in
+                self.savedImageView.isHidden = true
+                self.savedImageView.alpha = 1
+                self.savedImageLeadingConstraint.constant = self.savedView.frame.height/2
+                self.savedImageTrailingConstraint.constant = self.savedView.frame.height/2
+                self.savedImageBottomConstraint.constant = self.savedView.frame.height/2
+                self.savedImageTopConstraint.constant = self.savedView.frame.height/2
+            })
+        })
     }
     
     func goToCommentsSection() {
