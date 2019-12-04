@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5C23DC6B2396CBC8001D0F69 /* UITapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C23DC6A2396CBC8001D0F69 /* UITapGestureRecognizer.swift */; };
+		5C23DC6F2396E381001D0F69 /* KeyboardToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C23DC6D2396E381001D0F69 /* KeyboardToolbarView.swift */; };
+		5C23DC702396E381001D0F69 /* KeyboardToolbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C23DC6E2396E381001D0F69 /* KeyboardToolbarView.xib */; };
 		5C548B07238EDFCC004F3BCA /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548B04238EDFCC004F3BCA /* LaunchScreenViewController.swift */; };
 		5C548B08238EDFCC004F3BCA /* LaunchScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C548B05238EDFCC004F3BCA /* LaunchScreenViewController.xib */; };
 		5C548B09238EDFCC004F3BCA /* LaunchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548B06238EDFCC004F3BCA /* LaunchScreenViewModel.swift */; };
@@ -72,6 +74,8 @@
 
 /* Begin PBXFileReference section */
 		5C23DC6A2396CBC8001D0F69 /* UITapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizer.swift; sourceTree = "<group>"; };
+		5C23DC6D2396E381001D0F69 /* KeyboardToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbarView.swift; sourceTree = "<group>"; };
+		5C23DC6E2396E381001D0F69 /* KeyboardToolbarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardToolbarView.xib; sourceTree = "<group>"; };
 		5C548B04238EDFCC004F3BCA /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		5C548B05238EDFCC004F3BCA /* LaunchScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreenViewController.xib; sourceTree = "<group>"; };
 		5C548B06238EDFCC004F3BCA /* LaunchScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewModel.swift; sourceTree = "<group>"; };
@@ -151,6 +155,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C23DC6C2396E36D001D0F69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5C23DC6D2396E381001D0F69 /* KeyboardToolbarView.swift */,
+				5C23DC6E2396E381001D0F69 /* KeyboardToolbarView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5C548B03238EDFA7004F3BCA /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +199,7 @@
 		5C548B0C238EE0CB004F3BCA /* General */ = {
 			isa = PBXGroup;
 			children = (
+				5C23DC6C2396E36D001D0F69 /* Views */,
 				5C548B13238EE157004F3BCA /* Protocols */,
 				5C548B12238EE152004F3BCA /* Extensions */,
 				5C548B0E238EE114004F3BCA /* AppCoordinator.swift */,
@@ -470,6 +484,7 @@
 				5CFFBAD923954A3E00E6384B /* AddCommentView.xib in Resources */,
 				5C548B20238EEA4F004F3BCA /* TabBarViewController.xib in Resources */,
 				5CFFBAC92395490600E6384B /* CommentsSectionViewController.xib in Resources */,
+				5C23DC702396E381001D0F69 /* KeyboardToolbarView.xib in Resources */,
 				5CF64CBD238EB5D300BD492D /* LaunchScreen.storyboard in Resources */,
 				5CF64CBA238EB5D300BD492D /* Images.xcassets in Resources */,
 				5CFFBAD5239549FB00E6384B /* CommentsHeaderView.xib in Resources */,
@@ -554,6 +569,7 @@
 				5C548B0F238EE114004F3BCA /* AppCoordinator.swift in Sources */,
 				5C23DC6B2396CBC8001D0F69 /* UITapGestureRecognizer.swift in Sources */,
 				5C82FD0D2390039D0018ABB7 /* HomeViewController.swift in Sources */,
+				5C23DC6F2396E381001D0F69 /* KeyboardToolbarView.swift in Sources */,
 				5C82FD102390039D0018ABB7 /* HomeService.swift in Sources */,
 				5C82FD0C2390039D0018ABB7 /* HomeObject.swift in Sources */,
 				5C548B07238EDFCC004F3BCA /* LaunchScreenViewController.swift in Sources */,

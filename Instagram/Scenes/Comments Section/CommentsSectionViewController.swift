@@ -21,6 +21,7 @@ final class CommentsSectionViewController: UIViewController {
             tableView.register(UINib(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: "commentTableViewCell")
             tableView.backgroundColor = .primaryColor
             tableView.sectionHeaderHeight = UITableView.automaticDimension
+            tableView.sectionFooterHeight = UITableView.automaticDimension
             tableView.estimatedSectionHeaderHeight = 100
         }
     }
@@ -32,6 +33,7 @@ final class CommentsSectionViewController: UIViewController {
     init(viewModel: CommentsSectionViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: CommentsSectionViewController.self), bundle: .main)
+        self.view.backgroundColor = .black
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,11 +45,24 @@ final class CommentsSectionViewController: UIViewController {
         super.viewDidLoad()
         
         setupBinds()
+        configureKeyboardToolbarView()
     }
 
     // MARK: Functions
     private func setupBinds() {
         
+    }
+    
+    func configureKeyboardToolbarView() {
+        let keyboardToolbarView = KeyboardToolbarView()
+        view.addSubview(keyboardToolbarView.contentView)
+        
+        keyboardToolbarView.contentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            keyboardToolbarView.contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            keyboardToolbarView.contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            keyboardToolbarView.contentView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }
 
@@ -83,6 +98,10 @@ extension CommentsSectionViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension CommentsSectionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
 }

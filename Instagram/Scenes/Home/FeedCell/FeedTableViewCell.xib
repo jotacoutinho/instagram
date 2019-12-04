@@ -223,7 +223,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9qy-Ly-p5S" secondAttribute="trailing" constant="8" id="AbM-Uy-ebL"/>
                             <constraint firstItem="9qy-Ly-p5S" firstAttribute="top" secondItem="np3-SJ-QR3" secondAttribute="top" constant="8" id="QzZ-Lq-hke"/>
@@ -277,31 +277,29 @@
                                     <constraint firstAttribute="height" constant="35" id="N7z-Ip-YuB"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7Z-MA-Pmp" userLabel="Add Comment Button">
+                                <rect key="frame" x="67" y="30.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="addCommentButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3h6-fk-ZBh"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF9-nI-e2y">
                                 <rect key="frame" x="16" y="67" width="21.5" height="10"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x73-dz-coT" userLabel="Add Comment Text Field">
-                                <rect key="frame" x="59" y="28" width="165" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="didEndAddingComent:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="nyj-or-IDv"/>
-                                    <action selector="didTouchAddCommentTextField:" destination="KGk-i7-Jjw" eventType="touchDown" id="OMA-Oh-5Zw"/>
-                                </connections>
-                            </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="x73-dz-coT" secondAttribute="trailing" constant="96" id="3I4-dP-UdQ"/>
                             <constraint firstItem="IF9-nI-e2y" firstAttribute="top" secondItem="oRU-tK-kC0" secondAttribute="bottom" constant="4" id="6oY-xE-S8e"/>
                             <constraint firstItem="oRU-tK-kC0" firstAttribute="leading" secondItem="7XC-tV-NyX" secondAttribute="leading" constant="16" id="7gW-iv-6rb"/>
                             <constraint firstItem="oRU-tK-kC0" firstAttribute="width" secondItem="oRU-tK-kC0" secondAttribute="height" multiplier="1:1" id="H9s-KP-fo2"/>
-                            <constraint firstItem="x73-dz-coT" firstAttribute="leading" secondItem="oRU-tK-kC0" secondAttribute="trailing" constant="8" id="IRB-bR-bNa"/>
-                            <constraint firstItem="x73-dz-coT" firstAttribute="top" secondItem="qQF-HY-U3D" secondAttribute="bottom" constant="8" id="MrF-3E-TzZ"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c7Z-MA-Pmp" secondAttribute="trailing" constant="8" id="IsP-Uq-pAv"/>
                             <constraint firstItem="IF9-nI-e2y" firstAttribute="leading" secondItem="7XC-tV-NyX" secondAttribute="leading" constant="16" id="UR8-1Q-pmh"/>
+                            <constraint firstItem="c7Z-MA-Pmp" firstAttribute="centerY" secondItem="tRB-Z4-SPW" secondAttribute="centerY" id="Zof-sy-IP5"/>
+                            <constraint firstItem="c7Z-MA-Pmp" firstAttribute="leading" secondItem="oRU-tK-kC0" secondAttribute="trailing" constant="16" id="cF3-RF-OZ5"/>
                             <constraint firstAttribute="bottom" secondItem="IF9-nI-e2y" secondAttribute="bottom" constant="16" id="ch2-Lt-2Lw"/>
                             <constraint firstItem="qQF-HY-U3D" firstAttribute="leading" secondItem="7XC-tV-NyX" secondAttribute="leading" constant="16" id="jKa-XU-BTN"/>
                             <constraint firstItem="oRU-tK-kC0" firstAttribute="top" secondItem="qQF-HY-U3D" secondAttribute="bottom" constant="8" id="tRd-uk-C0o"/>
@@ -335,7 +333,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="addCommentTextField" destination="x73-dz-coT" id="Qe0-Qp-On1"/>
+                <outlet property="addCommentButton" destination="c7Z-MA-Pmp" id="lry-ZH-94u"/>
                 <outlet property="commandsView" destination="N4O-Kf-ZiW" id="B8V-Jn-WBG"/>
                 <outlet property="commentButton" destination="yTB-m0-nuH" id="Xyr-K9-72I"/>
                 <outlet property="commentUserImageView" destination="tRB-Z4-SPW" id="3oX-8O-ZC0"/>

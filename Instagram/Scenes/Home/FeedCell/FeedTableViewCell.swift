@@ -219,16 +219,15 @@ class FeedTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var addCommentTextField: UITextField! {
+    @IBOutlet weak var addCommentButton: UIButton! {
         didSet {
-            addCommentTextField.placeholder = "Add a comment..."
-            addCommentTextField.font = UIFont.systemFont(ofSize: 12)
-            addCommentTextField.textColor = .secondaryColor
-            addCommentTextField.backgroundColor = .clear
-            addCommentTextField.tintColor = .highlightColor
+            addCommentButton.setTitle("Add a comment...", for: .normal)
+            addCommentButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+            addCommentButton.titleLabel?.textAlignment = .left
+            addCommentButton.tintColor = .lightGray
         }
     }
-    
+
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
             dateLabel.text = "november 29th"
@@ -272,12 +271,9 @@ class FeedTableViewCell: UITableViewCell {
         delegate?.goToCommentsSection()
     }
     
-    @IBAction func didTouchAddCommentTextField(_ sender: Any) {
-        addCommentTextField.becomeFirstResponder()
-    }
-    
-    @IBAction func didEndAddingComent(_ sender: Any) {
-        addCommentTextField.resignFirstResponder()
+    @IBAction func addCommentButtonAction(_ sender: Any) {
+        keyboardToolbarView = KeyboardToolbarView()
+        configureKeyboardToolbar()
     }
     
     // MARK: - Variables
@@ -285,6 +281,7 @@ class FeedTableViewCell: UITableViewCell {
     var saveStatus: Bool = false
     var actionSheet: UIAlertController = UIAlertController()
     private weak var delegate: HomeDelegate?
+    private var keyboardToolbarView: KeyboardToolbarView?
     
     // MARK: - Life cycle
     override func awakeFromNib() {
@@ -298,14 +295,45 @@ class FeedTableViewCell: UITableViewCell {
     // MARK: - Custom methods
     func configure(delegate: HomeDelegate) {
         self.delegate = delegate
+        
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapView(recognizer:))))
         configureLabelsRecognizers()
+        configureKeyboardToolbar()
     }
     
     func configureLabelsRecognizers() {
-        usernameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(usernameLabelTapGestureRecognizer(recognizer:))))
-        locationLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(locationLabelTapGestureRecognizer(recognizer:))))
-        likesLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(likesLabelTapGestureRecognizer(recognizer:))))
-        descriptionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(descriptionLabelTapGestureRecognizer(recognizer:))))
+        usernameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                  action: #selector(usernameLabelTapGestureRecognizer(recognizer:))))
+        
+        locationLabel.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                  action: #selector(locationLabelTapGestureRecognizer(recognizer:))))
+        
+        likesLabel.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                               action: #selector(likesLabelTapGestureRecognizer(recognizer:))))
+        
+        descriptionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                     action: #selector(descriptionLabelTapGestureRecognizer(recognizer:))))
+    }
+    
+    func configureKeyboardToolbar() {
+        guard let toolbar = keyboardToolbarView else { return }
+
+        contentView.addSubview(toolbar.contentView)
+    
+        toolbar.contentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: toolbar.contentView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: toolbar.contentView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: toolbar.contentView.bottomAnchor)
+        ])
+        toolbar.contentView.clipsToBounds = true
+        toolbar.contentView.isUserInteractionEnabled = true
+    }
+    
+    @objc func didTapView(recognizer: UITapGestureRecognizer) {
+        if keyboardToolbarView?.contentView != nil {
+            keyboardToolbarView?.contentView.removeFromSuperview()
+        }
     }
     
     @objc func usernameLabelTapGestureRecognizer(recognizer: UITapGestureRecognizer) {
@@ -383,4 +411,8 @@ class FeedTableViewCell: UITableViewCell {
         actionSheet.addAction(showPostAction)
         actionSheet.addAction(cancelAction)
     }
+}
+
+extension FeedTableViewCell: UITextFieldDelegate {
+    
 }
